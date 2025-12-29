@@ -1,0 +1,16 @@
+services:
+  airport-db:
+    image: postgres:17-alpine
+    container_name: airport-db
+    environment:
+      POSTGRES_USER: airport 
+      POSTGRES_PASSWORD: airplanes
+      POSTGRES_DB: flightsdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - airport_data:/var/lib/postgresql/data
+
+
+volumes:
+  airport_data:

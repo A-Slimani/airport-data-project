@@ -1,1 +1,8 @@
 .venv
+.env
+*__pycache__
+/data
+*logs
+.DS_Store
+secrets.toml
+test_folder

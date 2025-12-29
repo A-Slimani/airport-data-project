@@ -1,0 +1,132 @@
+version: 2
+
+models:
+  - name: stg_flights_sydney
+    columns:
+      - name: name
+        description: "Flight name or identifier."
+        tests:
+          - not_null
+
+      - name: terminal_type
+        description: "Type of terminal (e.g. Domestic, International)."
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['domestic', 'international']
+
+      - name: flight_type
+        description: "Type of flight (e.g. Arrival, Departure)."
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['arrival', 'departure']
+
+      - name: airline_code
+        description: "Airline code extracted from flight data."
+        tests:
+          - not_null
+
+      - name: airline
+        description: "Airline name, normalized for missing codes."
+        tests:
+          - not_null
+
+      - name: destinations
+        description: "Destination airport(s) for the flight."
+
+      - name: flight_numbers
+        description: "Flight number(s)."
+        tests:
+          - not_null
+
+      - name: terminal_number
+        description: "Terminal number where the flight operates."
+
+      - name: scheduled_time
+        description: "Scheduled departure/arrival time."
+        tests:
+          - not_null
+
+      - name: scheduled_date
+        description: "Scheduled departure/arrival date."
+        tests:
+          - not_null
+
+      - name: estimated_date
+        description: "Estimated departure/arrival date (if available)."
+
+      - name: latest_time
+        description: "Latest known time for the flight."
+
+      - name: status
+        description: "Current flight status (e.g. On Time, Delayed, Cancelled)."
+
+  - name: stg_flights_adelaide
+    columns:
+      - name: name
+        description: "Flight name or identifier."
+        tests:
+          - not_null
+
+      - name: terminal_type
+        description: "Type of terminal (e.g. Domestic, International)."
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['domestic', 'international']
+
+      - name: flight_type
+        description: "Type of flight (e.g. Arrival, Departure)."
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['arrival', 'departure']
+
+      - name: airline_code
+        description: "Airline code extracted from flight data."
+        tests:
+          - not_null
+
+      - name: airline
+        description: "Airline name, normalized for missing codes."
+        tests:
+          - not_null
+
+      - name: destinations
+        description: "Destination airport(s) for the flight."
+
+      - name: flight_numbers
+        description: "Flight number(s)."
+        tests:
+          - not_null
+
+      - name: terminal_number
+        description: "Terminal number where the flight operates."
+
+      - name: scheduled_time
+        description: "Scheduled departure/arrival time."
+        tests:
+          - not_null
+
+      - name: scheduled_date
+        description: "Scheduled departure/arrival date."
+        tests:
+          - not_null
+
+      - name: estimated_date
+        description: "Estimated departure/arrival date (if available)."
+        tests:
+          - not_null
+
+      - name: latest_time
+        description: "Latest known time for the flight."
+        tests:
+          - not_null
+
+      - name: status
+        description: "Current flight status (e.g. On Time, Delayed, Cancelled)."
