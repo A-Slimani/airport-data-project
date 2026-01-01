@@ -11,6 +11,7 @@ current_date = date.today() - timedelta(days=1)
 
 data = get_data(BRI_URL)
 upload_to_db(data, date=current_date, table_name='raw_flights_bri')
+download_json(data, '/Users/aboud/programming/airport-data-project/data', f"brisbane-{current_date}.json")
 
 print('DONE')
 print('====')

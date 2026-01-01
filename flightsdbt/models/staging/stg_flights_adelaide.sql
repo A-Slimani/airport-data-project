@@ -8,7 +8,7 @@ SELECT
   name,
   CASE
     WHEN flight_data ->> 'flightType' = 'D' THEN 'domestic'
-    WHEN flight_data ->> 'flightType' = 'I' THEN 'interational'
+    WHEN flight_data ->> 'flightType' = 'I' THEN 'international'
   END AS terminal_type,
   CASE
     WHEN flight_data ->> 'direction' = 'D' THEN 'departure'
@@ -20,9 +20,12 @@ SELECT
     WHEN flight_data ->> 'direction' = 'D' THEN flight_data ->> 'toName' 
     WHEN flight_data ->> 'direction' = 'A' THEN flight_data ->> 'fromName' 
   END AS destinations,
-  flight_data ->> 'flightNumber' AS flight_number,
-  flight_data ->> 'scheduledDate' AS scheduled_time,
-  flight_data ->> 'scheduledDate' AS scheduled_date,
-  flight_data ->> 'estimatedDate' AS estimated_date
+  flight_data ->> 'flightNumber'                      AS flight_numbers,
+  flight_data ->> 'actualDate'                        AS actual_date,
+  (flight_data ->> 'actualDate')::TIMESTAMP::TIME     AS latest_time,     
+  flight_data ->> 'scheduledDate'                     AS scheduled_date,
+  (flight_data ->> 'scheduledDate')::TIMESTAMP::TIME  AS scheduled_time,
+  flight_data ->> 'estimatedDate'                     AS estimated_date,
+  (flight_data ->> 'estimatedDate')::TIMESTAMP::TIME  AS estimated_time
 FROM flattened_table
 

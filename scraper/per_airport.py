@@ -12,6 +12,7 @@ date_formatted = date.today().strftime("%m-%d-%Y")
 
 data = get_per_data(date_formatted, PER_URL)
 upload_to_db(data, date=date.today(), table_name='raw_flights_per')
+download_json(data, '/Users/aboud/programming/airport-data-project/data', f"perth-{date.today()}.json")
 
 print('DONE')
 print('====')

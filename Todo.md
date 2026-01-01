@@ -1,6 +1,4 @@
 # TODO LIST
-- [x] Rewrite scraper without scrapy 
-    - [x] Upload to db
 - [ ] Get data for
     - [ ] Download each one into the folder
     - [ ] Melbourne
@@ -26,6 +24,8 @@
         - In this format `MM:SS`
         - Write tests to check its valid
             - Maybe use great expectations
+        - [ ] Create time columns
+        - [ ] Add great expectations?
 
 ## Low Priority
 
@@ -33,7 +33,6 @@
 - [ ] Add retries if data was not collected
 - [ ] Find a backup solution for the current flight data
 - [ ] Add logging
-- [x] Add output for db actions
 
 ### Reporting
 - [ ] Write about my intermediate table and decisions
@@ -59,3 +58,8 @@
     - [ ] Setup home page
 - [ ] Delay by hour graph make it ignore hours with no delays or no flights
 - [ ] Find a way to show MM:SS instead of seconds on the `average_delay_graphs`
+
+## DB
+- [x] Implement materialised views to speed up queries
+- [ ] Implement `jsonb_to_recordset`
+- [ ] Rename flight_type column to flight_direction

@@ -11,8 +11,8 @@ current_date = date.today() - timedelta(days=1)
 date_formatted = current_date.strftime("%m-%d-%Y")
 
 data = get_data(ADL_URL)
-print(data)
 upload_to_db(data, date=current_date, table_name='raw_flights_adl')
+download_json(data, '/Users/aboud/programming/airport-data-project/data', f"adelaide-{current_date}.json")
 
 print('DONE')
 print('====')

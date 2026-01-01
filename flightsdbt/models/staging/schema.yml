@@ -65,6 +65,11 @@ models:
         description: "Current flight status (e.g. On Time, Delayed, Cancelled)."
 
   - name: stg_flights_adelaide
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - 
+
     columns:
       - name: name
         description: "Flight name or identifier."
@@ -108,11 +113,6 @@ models:
       - name: terminal_number
         description: "Terminal number where the flight operates."
 
-      - name: scheduled_time
-        description: "Scheduled departure/arrival time."
-        tests:
-          - not_null
-
       - name: scheduled_date
         description: "Scheduled departure/arrival date."
         tests:
@@ -120,11 +120,6 @@ models:
 
       - name: estimated_date
         description: "Estimated departure/arrival date (if available)."
-        tests:
-          - not_null
-
-      - name: latest_time
-        description: "Latest known time for the flight."
         tests:
           - not_null
 
