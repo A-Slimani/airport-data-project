@@ -27,6 +27,9 @@
         - [ ] Create time columns
         - [ ] Add great expectations?
 
+- [ ] Add background jobs
+    - Use CRON jobs or another framework
+
 ## Low Priority
 
 ### Pipeline / ELT
@@ -63,3 +66,5 @@
 - [x] Implement materialised views to speed up queries
 - [ ] Implement `jsonb_to_recordset`
 - [ ] Rename flight_type column to flight_direction
+- [ ] Improve performance of dbt
+    - 07:59:40  2 of 5 OK created sql table model dbt.stg_flights_sydney ....................... [SELECT 49717 in 28.94s]

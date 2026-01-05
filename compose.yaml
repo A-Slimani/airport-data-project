@@ -7,7 +7,7 @@ services:
       POSTGRES_PASSWORD: airplanes
       POSTGRES_DB: flightsdb
     ports:
-      - "5432:5432"
+      - "5435:5432"
     volumes:
       - airport_data:/var/lib/postgresql/data
 

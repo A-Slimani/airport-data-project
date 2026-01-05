@@ -30,3 +30,4 @@ WITH flattened_table AS (
   FROM flattened_table ft
 )
 SELECT DISTINCT ON (id) * FROM cleaned_table
+WHERE airline IS NOT NULL 

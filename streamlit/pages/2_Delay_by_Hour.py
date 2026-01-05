@@ -4,7 +4,7 @@ import streamlit as st
 import pandas as pd
 
 conn = st.connection("postgresql", type="sql")
-df = conn.query("SELECT * FROM dbt.delays_by_time")
+df = conn.query("SELECT * FROM dbt.delays_by_time WHERE delay_percentage > 0")
 
 df['average_delay_duration'] = df['average_delay_duration'].apply(lambda t: t.strftime("%H:%M:%S"))
 
@@ -27,7 +27,7 @@ col3.metric("Avg Delay Duration", f"{delay_min:02d}:{delay_sec:02d}")
 col4.metric("Worst Hour", f"{df.nlargest(1, 'delay_percentage')['flight_hour'].values[0]:.0f}:00")
 
 # Main chart: Delay percentage (sorted)
-st.subheader("Delay Rate by Hour")
+st.subheader("Delay Rate by Flight hour")
 fig1 = px.bar(
     df.sort_values('delay_percentage'),
     x='delay_percentage',
@@ -39,9 +39,9 @@ fig1 = px.bar(
 )
 fig1.update_traces(texttemplate='%{text:.2f}%', textposition='outside')
 st.plotly_chart(fig1, use_container_width=True)
-# 
-# # Graph 2
-st.subheader("Average delay duration by Airline")
+
+# Graph 2
+st.subheader("Average delay duration by Flight hour")
 fig1 = px.bar(
     df.sort_values('average_delay_duration_seconds'),
     x='average_delay_duration_seconds',
@@ -53,7 +53,6 @@ fig1 = px.bar(
 )
 fig1.update_traces(texttemplate='%{text}', textposition='outside')
 st.plotly_chart(fig1, use_container_width=True)
-
 
 
 # Data table
