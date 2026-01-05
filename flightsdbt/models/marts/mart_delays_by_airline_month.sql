@@ -1,6 +1,7 @@
 SELECT
   airline,
   flight_month,
+  terminal_type,
   COUNT(*) AS "total_flights",
   COUNT(CASE WHEN delay_status='delayed' THEN 1 END) AS "delayed_flights",
   ROUND(
@@ -16,4 +17,4 @@ SELECT
     ) 
   ), 0) AS "average_delay_duration_seconds"
 FROM {{ ref('int_flight_delays_by_month') }}
-GROUP BY airline, flight_month
+GROUP BY airline, flight_month, terminal_type 

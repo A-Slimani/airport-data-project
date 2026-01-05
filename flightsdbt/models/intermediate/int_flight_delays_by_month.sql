@@ -14,5 +14,5 @@ SELECT
     ELSE 'on-time' 
   END AS "delay_status",
   scheduled_date,
-  TO_CHAR(TRUNC('month', scheduled_date::DATE), 'YYYY-MM' AS "flight_month",
+  TO_CHAR(scheduled_date::DATE, 'YYYY-MM') AS "flight_month"
 FROM {{ ref('stg_flights_sydney') }}
