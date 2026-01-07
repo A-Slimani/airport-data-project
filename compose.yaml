@@ -11,6 +11,17 @@ services:
     volumes:
       - airport_data:/var/lib/postgresql/data
 
+  prefect-server:
+    image: prefrecthq/prefect:3-latest
+    ports:
+      - "4200:4200"
+    envinronment:
+      - PREFECT_API_URL=http://localhost:4200/api
+    command: prefect server start --host 0.0.0.0
+    volumes:
+    - prefect_data:/root/.prefect
 
 volumes:
   airport_data:
+  prefect_data:
+
