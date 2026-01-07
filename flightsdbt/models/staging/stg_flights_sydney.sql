@@ -2,14 +2,14 @@ WITH flattened_table AS (
   SELECT 
     name,     
     data ->> 'terminalType' AS "terminal_type",
-    data ->> 'flightType'   AS "flight_type",
+    data ->> 'flightType'   AS "flight_direction",
     jsonb_array_elements((data ->> 'flightData')::JSONB) AS "flight_data"
   FROM {{ source('database', 'raw_flights_syd') }}
 ), cleaned_table AS (
   SELECT
     ft.flight_data ->> 'id' AS "id",                           
     ft.name,
-    ft.flight_type,
+    ft.flight_direction,
     ft.terminal_type,
     CASE
       WHEN ft.flight_data ->> 'airline'='' AND ft.flight_data ->> 'airlineCode'='VJ' THEN 'VietJet'

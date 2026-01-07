@@ -1,6 +1,7 @@
 SELECT
   name,
   terminal_type,
+  flight_direction,
   airline_code,
   airline,
   destinations,

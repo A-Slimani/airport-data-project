@@ -13,7 +13,7 @@ SELECT
   CASE
     WHEN flight_data ->> 'direction' = 'D' THEN 'departure'
     WHEN flight_data ->> 'direction' = 'A' THEN 'arrival'
-  END AS flight_type,
+  END AS flight_direction,
   flight_data ->> 'airlineCode' AS airline_code,
   flight_data ->> 'airlineName' AS airline,
   CASE
