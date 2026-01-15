@@ -14,7 +14,6 @@ args = parser.parse_args()
 get_date = args.date if args.date else current_date
   
 print(f'Getting Sydney Airport data for {get_date}...')
-print("====")
 
 # international - departure
 data = get_syd_data('international', 'departure', get_date)
@@ -35,6 +34,3 @@ download_json(data, '/Users/aboud/programming/airport-data-project/data', f"sydn
 data = get_syd_data('domestic', 'arrival', get_date)
 upload_to_db(data, terminal_type='domestic', flight_type='arrival', date=get_date, table_name='raw_flights_syd')
 download_json(data, '/Users/aboud/programming/airport-data-project/data', f"sydney-{get_date}-domestic-arrival.json")
-
-print('DONE')
-print('====')
