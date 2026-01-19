@@ -16,7 +16,7 @@ def download_json(content, dir, filename):
                 json.dump(content, f, indent=2)
             print(f"{filename} downloaded")
         else:
-            print(f"{filename} already exists")
+            print(f"{filename} already exists. Skipping...")
     except Exception as e:
         print(f"Failed to write: {e}")
 
