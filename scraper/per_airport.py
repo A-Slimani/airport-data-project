@@ -33,6 +33,8 @@ def get_data():
         print(f"An error occurred when accessing the webpage: {e}")
         
 @click.command()
+
+@click.option('--download-json', is_flag=True, default=False)
 @click.option('--download-dir', default='/Users/aboud/programming/airport-data-project/data')
 def main(download_dir):
     data = get_data()

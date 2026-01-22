@@ -37,12 +37,13 @@ def get_data(start_range, end_range):
 @click.command()
 @click.option('--timestamp-start', default=start_ts)
 @click.option('--timestamp-end', default=end_ts)
+@click.option('--download-json', is_flag=True, default=False)
 @click.option('--download-dir', default='/Users/aboud/programming/airport-data-project/data')
 def main(timestamp_start, timestamp_end, download_dir):
     data = get_data(timestamp_start, timestamp_end)
     filename = f"melbourne-{yesterday_start.date()}.json"
-
-    download_json(data, download_dir, filename)
+    if download_json:
+        download_json(data, download_dir, filename)
     upload_blob(data, filename)
 
 

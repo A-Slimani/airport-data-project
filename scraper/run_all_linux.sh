@@ -1,0 +1,7 @@
+uv run syd_airport.py --terminal domestic --direction departure --download-dir "/home/aboud/programming/airport-data-project/data"
+uv run syd_airport.py --terminal domestic --direction arrival --download-dir "/home/aboud/programming/airport-data-project/data"
+uv run syd_airport.py --terminal international --direction departure --download-dir "/home/aboud/programming/airport-data-project/data"
+uv run syd_airport.py --terminal international --direction arrival --download-dir "/home/aboud/programming/airport-data-project/data"
+uv run melb_airport.py --download-dir "/home/aboud/programming/airport-data-project/data"
+uv run bris_airport.py --download-dir "/home/aboud/programming/airport-data-project/data"
+uv run adl_airport.py --download-dir "/home/aboud/programming/airport-data-project/data"

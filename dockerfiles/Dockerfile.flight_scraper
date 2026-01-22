@@ -1,0 +1,16 @@
+FROM ghcr.io/astral-sh/uv:python3.11-bookworm-slim
+
+WORKDIR /app
+
+COPY pyproject.toml uv.lock ./
+
+RUN uv sync --frozen --no-dev
+
+COPY ./scraper ./scraper
+
+ENV PATH="/app/.venv/bin:$PATH"
+
+ENV PYTHONUNBUFFERED=1
+
+# FOR TESTING
+# RUN uv run --no-dev ./scraper/syd_airport.py  './data/'
