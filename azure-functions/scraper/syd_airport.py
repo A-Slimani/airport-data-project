@@ -1,6 +1,5 @@
-from utils import download_file, upload_blob_az
-from datetime import date, timedelta
-from utils import DATE_YESTERDAY, AZ_PATH, HEADERS
+from .config import DATE_YESTERDAY, HEADERS
+from .utils import download_file, upload_blob_az
 import requests
 import click
 
@@ -30,13 +29,13 @@ def get_data(flight_dir, terminal_type, date):
 @click.option('--upload-az', is_flag=True, default=False)
 @click.option('--download-dir', default='/home/aboud/programming/airport-data-project/data')
 @click.option('--date', default=DATE_YESTERDAY)
-def main(direction, terminal, download_dir, date, download_json):
+def main(direction, terminal, download_dir, date, download_json, upload_az):
     data = get_data(direction, terminal, date)
     filename = f"sydney-{date}-{direction}-{terminal}.json"
     if download_json:
         download_file(data, download_dir, filename)
     if upload_az:
-        upload_blob_az(data, filename, f"{AZ_PATH}/SYD/")
+        upload_blob_az(data, filename, f"BRONZE/SYD")
 
 
 if __name__ == "__main__":

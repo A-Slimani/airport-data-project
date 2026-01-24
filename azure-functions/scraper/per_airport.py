@@ -1,6 +1,6 @@
 from utils import download_file, upload_blob
 from config import HEADERS, DATE_YESTERDAY
-from datetime import date 
+from datetime import date
 from curl_cffi import requests as rq
 from bs4 import BeautifulSoup
 import click
@@ -27,7 +27,6 @@ def get_data():
             'ItemstoSkip': 0
         }
         response = session.post(PER_URL, data=form_data)
-        print(response.json())
         return response.json()
     except Exception as e:
         print(f"An error occurred when accessing the webpage: {e}")

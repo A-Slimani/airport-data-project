@@ -1,14 +1,11 @@
-from utils import download_file, upload_blob
+from utils import download_file, upload_blob_az
+from config import DATE_YESTERDAY, HEADERS
 from datetime import date, timedelta
 import requests
 import click
 
 BRIS_URL = 'https://www.bne.com.au/sites/default/files/00API-Yesterday.json'
-DATE_YESTERDAY = date.today() - timedelta(days=1)
-HEADERS = {
-    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/120.0',
-    'accept': 'application/json'
-}
+
 
 def get_data():
     try:
@@ -22,13 +19,15 @@ def get_data():
 
 @click.command()
 @click.option('--download-json', is_flag=True, default=False)
+@click.option('--upload-az', is_flag=True, default=False)
 @click.option('--download-dir', default='/Users/aboud/programming/airport-data-project/data')
-def main(download_dir, download_json):
+def main(download_dir, download_json, upload_az):
     data = get_data()
     filename = f"brisbane-{DATE_YESTERDAY}.json" 
     if download_json:
         download_file(data, download_dir, filename)
-    upload_blob(data, filename)
+    if upload_az:
+        upload_blob_az(data, filename, "BRONZE/BRI")
 
 
 if __name__ == "__main__":

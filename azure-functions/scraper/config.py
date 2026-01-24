@@ -6,5 +6,3 @@ HEADERS = {
 }
 
 DATE_YESTERDAY = date.today() - timedelta(days=1)
-
-AZ_PATH = "airport-data/BRONZE/"
