@@ -1,9 +1,9 @@
-from utils import download_file, upload_blob_az
-from config import (
-    DATE_YESTERDAY, 
+from .utils import download_file, upload_blob_az
+from .config import (
+    DATE_YESTERDAY,
     HEADERS,
-    TIMESTAMP_START_YESTERDAY,
-    TIMESTAMP_END_YESTERDAY
+    TIMESTAMP_YESTERDAY_START,
+    TIMESTAMP_YESTERDAY_END
 )
 from datetime import datetime, timedelta
 import requests
@@ -27,8 +27,8 @@ def get_data(start_range, end_range):
 
 
 @click.command()
-@click.option('--timestamp-start', default=TIMESTAMP_START_YESTERDAY)
-@click.option('--timestamp-end', default=TIMESTAMP_END_YESTERDAY)
+@click.option('--timestamp-start', default=TIMESTAMP_YESTERDAY_START)
+@click.option('--timestamp-end', default=TIMESTAMP_YESTERDAY_END)
 @click.option('--download-json', is_flag=True, default=False)
 @click.option('--upload-az', is_flag=True, default=False)
 @click.option('--download-dir', default='/Users/aboud/programming/airport-data-project/data')

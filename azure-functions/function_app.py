@@ -1,5 +1,10 @@
 from scraper.syd_airport import get_data as get_data_syd
-from scraper.config import DATE_YESTERDAY
+from scraper.melb_airport import get_data as get_data_mel
+from scraper.config import (
+    DATE_YESTERDAY,
+    TIMESTAMP_YESTERDAY_START,
+    TIMESTAMP_YESTERDAY_END
+)
 from scraper.utils import upload_blob_az
 import azure.functions as func
 import datetime
@@ -8,7 +13,7 @@ import logging
 
 app = func.FunctionApp()
 
-@app.timer_trigger(schedule="0 * * * * *", arg_name="my_timer", run_on_startup=True)
+@app.timer_trigger(schedule="0 * * * * *", arg_name="timer", run_on_startup=True)
 def syd_airport_scraper(timer: func.TimerRequest) -> None:
     logging.info("Starting Sydney scraper")
 
@@ -25,11 +30,11 @@ def syd_airport_scraper(timer: func.TimerRequest) -> None:
 
 
 @app.timer_trigger(schedule="0 * * * * *", arg_name="timer", run_on_startup=True)
-def timer_trigger_example(timer: func.TimerRequest) -> None:
+def melb_airport_scraper(timer: func.TimerRequest) -> None:
     logging.info("Starting Melbourne scraper")
 
-    filename = f"sydney-{DATE_YESTERDAY}-{direction}-{terminal}.json"
-    data = get_data_syd(direction, terminal, DATE_YESTERDAY)
-    upload_blob_az(data, filename, f"BRONZE/SYD")
+    filename = f"melbourne-{DATE_YESTERDAY}.json"
+    data = get_data_mel(TIMESTAMP_YESTERDAY_START, TIMESTAMP_YESTERDAY_END)
+    upload_blob_az(data, filename, f"BRONZE/MEL")
 
     logging.info("Melbourne scraper complete")
