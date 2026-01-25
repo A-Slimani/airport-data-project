@@ -1,5 +1,5 @@
-from utils import download_file, upload_blob
-from config import HEADERS, DATE_YESTERDAY
+from .utils import download_file, upload_blob
+from .config import HEADERS, DATE_YESTERDAY
 from datetime import date
 from curl_cffi import requests as rq
 from bs4 import BeautifulSoup

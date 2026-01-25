@@ -1,4 +1,4 @@
-from utils import download_file, upload_blob
+from .utils import download_file, upload_blob
 from curl_cffi import requests as rq
 from config import HEADERS, DATE_YESTERDAY
 import click

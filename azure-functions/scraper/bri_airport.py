@@ -1,6 +1,5 @@
-from utils import download_file, upload_blob_az
-from config import DATE_YESTERDAY, HEADERS
-from datetime import date, timedelta
+from .utils import download_file, upload_blob_az
+from .config import DATE_YESTERDAY, HEADERS
 import requests
 import click
 

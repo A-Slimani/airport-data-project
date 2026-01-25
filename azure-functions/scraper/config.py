@@ -6,6 +6,7 @@ HEADERS = {
 }
 
 DATE_YESTERDAY = date.today() - timedelta(days=1)
+DATE_TODAY = date.today()
 
 # SPECIFIC FOR MELBOURNE
 yesterday_start = datetime.today() - timedelta(days=1)
