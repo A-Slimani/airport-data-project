@@ -6,3 +6,11 @@ HEADERS = {
 }
 
 DATE_YESTERDAY = date.today() - timedelta(days=1)
+
+# SPECIFIC FOR MELBOURNE
+yesterday_start = datetime.today() - timedelta(days=1)
+yesterday_start = yesterday_start.replace(hour=0, minute=0, second=0, microsecond=0)
+yesterday_end = yesterday_start.replace(hour=23, minute=59, second=59)
+
+TIMESTAMP_START_YESTERDAY = int(yesterday_start.timestamp() * 1000)
+TIMESTAMP_END_YESTERDAY = int(yesterday_end.timestamp() * 1000)
