@@ -1,0 +1,31 @@
+[0m19:13:41.336576 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x735c07b8f250>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x735c05135710>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x735c04d827d0>]}
+
+
+============================== 19:13:41.369258 | 52131fce-841f-4817-a367-17316859e4fd ==============================
+[0m19:13:41.369258 [info ] [MainThread]: Running with dbt=1.11.2
+[0m19:13:41.369676 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'send_anonymous_usage_stats': 'True', 'static_parser': 'True', 'fail_fast': 'False', 'quiet': 'False', 'target_path': 'None', 'profiles_dir': '/home/aboud/.dbt', 'use_experimental_parser': 'False', 'invocation_command': 'dbt init airport-dbt', 'partial_parse': 'True', 'write_json': 'True', 'no_print': 'None', 'log_cache_events': 'False', 'debug': 'False', 'log_path': 'logs', 'warn_error': 'None', 'cache_selected_only': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'empty': 'None', 'introspect': 'True', 'indirect_selection': 'eager', 'log_format': 'default', 'version_check': 'True', 'use_colors': 'True'}
+[0m19:13:41.401995 [info ] [MainThread]: Creating dbt configuration folder at /home/aboud/.dbt
+[0m19:13:47.160943 [debug] [MainThread]: Starter project path: /home/aboud/programming/airport-data-project/.venv/lib/python3.11/site-packages/dbt/include/starter_project
+[0m19:13:47.162996 [info ] [MainThread]: 
+Your new dbt project "airportdbt" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m19:13:47.163284 [info ] [MainThread]: Setting up your profile.
+[0m19:13:49.593835 [info ] [MainThread]: Profile airportdbt written to /home/aboud/.dbt/profiles.yml using target's sample configuration. Once updated, you'll be able to start developing with dbt.
+[0m19:13:49.594415 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 8.301404, "process_in_blocks": "960", "process_kernel_time": 0.180346, "process_mem_max_rss": "135292", "process_out_blocks": "1376", "process_user_time": 1.041228}
+[0m19:13:49.594792 [debug] [MainThread]: Command `dbt init` succeeded at 19:13:49.594719 after 8.30 seconds
+[0m19:13:49.595073 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x735c05135a50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x735c08b173d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x735c08a77510>]}
+[0m19:13:49.595367 [debug] [MainThread]: Flushing usage events
+[0m19:13:50.439769 [debug] [MainThread]: An error was encountered while trying to flush usage events

@@ -1,6 +1,6 @@
 from .utils import download_file, upload_blob
+from .config import HEADERS, DATE_YESTERDAY
 from curl_cffi import requests as rq
-from config import HEADERS, DATE_YESTERDAY
 import click
 
 ADL_URL = "https://adelaideairport.com.au/api/flight-information/filtered-flights" 

@@ -17,7 +17,10 @@ def get_data(flight_dir, terminal_type, date):
         response = requests.get(SYD_URL, params=params, headers=HEADERS)
         response.raise_for_status()
         data = response.json()
-        return data
+        if data:
+            return data
+        else:
+            raise ValueError("Response returned valid but empty JSON")
     except Exception as e:
         print(f"An error occurred when accessing the URL: {e}")
 
@@ -35,7 +38,7 @@ def main(direction, terminal, download_dir, date, download_json, upload_az):
     if download_json:
         download_file(data, download_dir, filename)
     if upload_az:
-        upload_blob_az(data, filename, f"BRONZE/SYD")
+        upload_blob_az(data, filename, f"RAW/SYD")
 
 
 if __name__ == "__main__":

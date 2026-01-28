@@ -5,12 +5,19 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
+    "adlfs>=2025.8.0",
     "azure-identity>=1.25.1",
     "azure-storage-file-datalake>=12.23.0",
     "bs4>=0.0.2",
     "click>=8.3.1",
     "curl-cffi>=0.14.0",
+    "dbt-core>=1.11.2",
+    "dbt-duckdb>=1.10.0",
+    "duckdb>=1.4.4",
     "google-cloud-storage>=3.8.0",
+    "numpy>=2.4.1",
+    "pandas>=3.0.0",
+    "pyarrow>=23.0.0",
     "requests>=2.32.5",
 ]
 

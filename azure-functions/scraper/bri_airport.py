@@ -26,7 +26,7 @@ def main(download_dir, download_json, upload_az):
     if download_json:
         download_file(data, download_dir, filename)
     if upload_az:
-        upload_blob_az(data, filename, "BRONZE/BRI")
+        upload_blob_az(data, filename, "RAW/BRI")
 
 
 if __name__ == "__main__":

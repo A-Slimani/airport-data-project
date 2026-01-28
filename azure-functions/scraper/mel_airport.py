@@ -20,8 +20,10 @@ def get_data(start_range, end_range):
     try:
         response = requests.get(MELB_URL, params=params, headers=HEADERS)
         response.raise_for_status()
-        data = response.json()
-        return data
+        if data:
+            return data
+        else:
+            raise ValueError("Response returned valid but empty JSON")
     except Exception as e:
         print(f"An error occurred when accessing the URL: {e}")
 
@@ -38,7 +40,7 @@ def main(timestamp_start, timestamp_end, download_dir, download_json, upload_az)
     if download_json:
         download_file(data, download_dir, filename)
     if upload_az:
-        upload_blob_az(data, filename, "BRONZE/MEL")
+        upload_blob_az(data, filename, "RAW/MEL")
 
 
 if __name__ == "__main__":

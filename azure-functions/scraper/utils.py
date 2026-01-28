@@ -2,6 +2,7 @@ from azure.storage.filedatalake import DataLakeServiceClient, ContentSettings
 from azure.identity import DefaultAzureCredential
 from google.cloud import storage
 from pathlib import Path
+import logging
 import json
 
 
@@ -57,6 +58,8 @@ def upload_blob_az(content, filename, directory):
 
         file_client.upload_data(json_payload, overwrite=True, content_settings=json_settings)
 
-        print(f"{filename} uploaded to {directory}")
+        # print(f"{filename} uploaded to {directory}")
+        logging.info(f"{filename} uploaded ot {directory}")
     except Exception as e:
-        print(f"Failed to upload to blob storage: {e}")
+        # print(f"Failed to upload to blob storage: {e}")
+        logging.info(f"Failed to upload to blob storage: {e}")

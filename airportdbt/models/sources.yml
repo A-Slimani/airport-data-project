@@ -1,0 +1,7 @@
+version: 2
+sources:
+  - name: raw_syd
+    description: "Raw Sydney flights from ADLS"
+    tables:
+      - name: raw_flights
+        description: cleaned sydney flight data
