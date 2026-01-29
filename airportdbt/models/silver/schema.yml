@@ -1,0 +1,76 @@
+models:
+  - name: syd_flights_cleaned
+    columns:
+      - name: id
+        description: "id provided by the API"
+        tests:
+          - not_null
+
+      - name: terminal
+        description: "domestic or international"
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['domestic', 'international']
+
+      - name: flight_direction 
+        description: "arrival or departure"
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['arrival', 'departure']
+
+      - name: airline
+        description: "name of airline"
+        tests:
+          - not_null
+
+      - name: airline_code
+        description: "airline code"
+        tests:
+          - not_null
+
+      - name: destinations
+        description: "list of destinations"
+        tests:
+          - not_null
+
+      - name: flight_numbers
+        description: "list of flight numbers"
+        tests:
+          - not_null
+
+      - name: terminal_number
+        description: "terminal number"
+        tests:
+          - not_null
+
+      - name: scheduled_time
+        description: "scheduled time of arrival / departure"
+        tests:
+          - not_null
+
+      - name: scheduled_date
+        description: "scheduled time of arrival / departure"
+        tests:
+          - not_null
+
+      - name: estimated_time
+        description: "scheduled time of arrival / departure"
+
+      - name: estimated_date
+        description: "scheduled time of arrival / departure"
+
+      - name: latest_time
+        description: "last updated time"
+        tests:
+          - not_null
+
+      - name: status
+        description: "state of flight"
+        tests:
+          - not_null
+
+
