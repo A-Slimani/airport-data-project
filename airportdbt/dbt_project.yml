@@ -34,9 +34,6 @@ models:
     # Config indicated by + and applies to all files under models/example/
     silver:
       +materialized: table 
+      post-hook: "COPY {{ this }} TO 'abfss://airport-data@airportdataproject.dfs.core.windows.net/SILVER/SYD/*.parquet' (FORMAT PARQUET)"
 
-# on-run-start:
-#   - "LOAD azure"
-#   - "LOAD httpfs"
-#   - "SET ca_cert_file='/etc/ssl/certs/ca-certificates.crt'"
 

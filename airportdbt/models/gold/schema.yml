@@ -1,0 +1,23 @@
+models:
+  - name: flight_metrics 
+    columns:
+      - name: id
+        description: "id provided by the API"
+        tests:
+          - not_null
+
+      - name: terminal
+        description: "domestic or international"
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['domestic', 'international']
+
+      - name: flight_direction 
+        description: "arrival or departure"
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['arrival', 'departure']
