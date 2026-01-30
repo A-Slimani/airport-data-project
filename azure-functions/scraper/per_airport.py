@@ -1,6 +1,5 @@
 from .utils import download_file, upload_blob
-from .config import HEADERS, DATE_YESTERDAY
-from datetime import date
+from .config import HEADERS, DATE_YESTERDAY, DATE_TODAY
 from curl_cffi import requests as rq
 from bs4 import BeautifulSoup
 import click
@@ -37,7 +36,7 @@ def get_data():
 @click.option('--download-dir', default='/Users/aboud/programming/airport-data-project/data')
 def main(download_dir, download_json):
     data = get_data()
-    filename = f"perth-{date.today()}.json"
+    filename = f"perth-{DATE_TODAY}.json"
     if download_json:
         download_file(data, download_dir, filename)
     upload_blob(data, filename)
