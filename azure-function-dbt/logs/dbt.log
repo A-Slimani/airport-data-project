@@ -1,0 +1,14 @@
+[0m14:46:35.312616 [debug] [ThreadPool]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7166f93c1910>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7166abc7e850>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7166abc8d690>]}
+
+
+============================== 14:46:35.333805 | 38f8f0b9-ca23-4c5f-aff7-21c7d7cd45c2 ==============================
+[0m14:46:35.333805 [info ] [ThreadPool]: Running with dbt=1.11.2
+[0m14:46:35.334357 [debug] [ThreadPool]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'version_check': 'True', 'log_path': 'logs', 'profiles_dir': '/home/aboud/.dbt', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'invocation_command': 'dbt --host 127.0.0.1 --port 45107 --workerId a74946f1-9898-498a-a5ca-f559f8f2cbfd --requestId e540433b-2b85-4e71-a0e2-dea1f1860f9a --grpcMaxMessageLength 2147483647 --functions-uri http://127.0.0.1:45107/ --functions-worker-id a74946f1-9898-498a-a5ca-f559f8f2cbfd --functions-request-id e540433b-2b85-4e71-a0e2-dea1f1860f9a --functions-grpc-max-message-length 2147483647', 'log_format': 'default', 'static_parser': 'True', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m14:46:35.334923 [error] [ThreadPool]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /home/aboud/programming/airport-data-project/azure-function-dbt/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m14:46:35.335692 [debug] [ThreadPool]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7166abc8f4d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7166b04a29d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7166abc65b90>]}
+[0m14:46:35.336096 [debug] [ThreadPool]: Flushing usage events
+[0m14:46:36.232311 [debug] [ThreadPool]: An error was encountered while trying to flush usage events

@@ -27,6 +27,9 @@ def syd_airport_scraper(req: func.HttpRequest) -> func.HttpResponse:
         directions = ["departure", "arrival"]
         terminals = ["international", "domestic"]
 
+        logging.info(DATE_YESTERDAY)
+        logging.info(DATE_TODAY)
+
         for d in directions:
             for t in terminals:
                 filename = f"sydney-{DATE_YESTERDAY}-{d}-{t}.json"
@@ -113,6 +116,7 @@ def mel_airport_scraper(req: func.HttpRequest) -> func.HttpResponse:
 
         filename = f"melbourne-{DATE_YESTERDAY}.json"
         data = get_data_mel(TIMESTAMP_YESTERDAY_START, TIMESTAMP_YESTERDAY_END)
+
         upload_blob_az(data, filename, f"RAW/MEL")
 
         logging.info("Melbourne scraper complete")
@@ -140,6 +144,7 @@ def per_airport_scraper(req: func.HttpRequest) -> func.HttpResponse:
 
         filename = f"perth-{DATE_TODAY}.json"
         data = get_data_per()
+        logging.info(data)
         upload_blob_az(data, filename, f"RAW/PER")
 
         logging.info("Perth scraper complete")
@@ -151,7 +156,7 @@ def per_airport_scraper(req: func.HttpRequest) -> func.HttpResponse:
         )
 
     except Exception as e:
-        logging.info("Perth scraper failed")
+        logging.info(f"Perth scraper failed: {e}")
         return func.HttpResponse(
             json.dumps({"status":"FAILED", "error": str(e)}),
             status_code=500,

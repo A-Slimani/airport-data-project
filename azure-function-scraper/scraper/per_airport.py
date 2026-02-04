@@ -2,6 +2,7 @@ from .utils import download_file, upload_blob
 from .config import HEADERS, DATE_YESTERDAY, DATE_TODAY
 from curl_cffi import requests as rq
 from bs4 import BeautifulSoup
+import logging 
 import click
 
 PER_URL = "https://www.perthairport.com.au/flights/departures-and-arrivals"
@@ -18,7 +19,7 @@ def get_data():
             'scController': 'Flights',
             'scAction': 'GetFlightResults',
             'Nature': 'nature',
-            'Date': date.today(),
+            'Date': DATE_TODAY,
             'Time': '',
             'DomInt': '',
             'Terminal': '',
@@ -26,9 +27,16 @@ def get_data():
             'ItemstoSkip': 0
         }
         response = session.post(PER_URL, data=form_data)
-        return response.json()
+
+        data = response.json()
+        logging.info(data)
+
+        if data:
+            return data
+        else:
+            raise ValueError("Response returned valid but empty JSON")
     except Exception as e:
-        print(f"An error occurred when accessing the webpage: {e}")
+        raise Exception(f"An error occurred when accessing the webpage: {e}")
 
 
 @click.command()

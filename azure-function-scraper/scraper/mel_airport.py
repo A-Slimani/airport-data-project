@@ -7,6 +7,7 @@ from .config import (
 )
 from datetime import datetime, timedelta
 import requests
+import logging
 import click
 
 MELB_URL = 'https://www.melbourneairport.com.au/api/data/search'
@@ -20,6 +21,8 @@ def get_data(start_range, end_range):
     try:
         response = requests.get(MELB_URL, params=params, headers=HEADERS)
         response.raise_for_status()
+        data = response.json()
+        logging.info(f"DATA IN FUNCTION: {data}")
         if data:
             return data
         else:

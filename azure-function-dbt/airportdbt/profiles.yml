@@ -1,0 +1,18 @@
+airportdbt:
+  outputs:
+    default:
+      type: duckdb
+      path: ':memory:'
+      threads: 2
+      extensions:
+        - azure
+        - httpfs
+      settings:
+        azure_transport_option_type: 'curl'
+      secrets:
+        - name: azure_sec
+          type: azure
+          provider: credential_chain
+          chain: 'cli;env'
+          account_name: airportdataproject
+

@@ -1,7 +1,4 @@
-Creating Dashboard for total analysis of airport / airline performance. 
+# TODO LIST
+ - [ ] Get data for Perth 1st of FEB with API 
+ - [ ] Get any missing data for feb
 
-
-## Current Todo List
-- [ ] Setup cloud storage bucket with Terraform
-- [ ] Write scraper for Sydney Airport
-- [ ] Decide on what automation / scheduling tools to use 
